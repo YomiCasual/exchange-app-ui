@@ -4,7 +4,7 @@ import { TextField } from "@mui/material";
 import { CustomInputProps } from "./types";
 
 /** Component for all text inputs (text, email and so on) */
-const TextInput = forwardRef(
+export const CustomInput = forwardRef(
   (
     {
       name,
@@ -32,6 +32,4 @@ const TextInput = forwardRef(
   }
 );
 
-TextInput.displayName = "TextInput";
-
-export default TextInput;
+CustomInput.displayName = "TextInput";
