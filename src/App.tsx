@@ -28,13 +28,15 @@ function App() {
   }, []);
 
   return (
-    <div className="app-container">
+    <div>
       <ExchangeForm />
-      <HistoryTable
-        rows={historyData}
-        columns={HISTORY_TABLE_COLUMNS}
-        getRowId={(data) => data.name}
-      />
+      <div className="app-container">
+        <HistoryTable
+          rows={historyData}
+          columns={HISTORY_TABLE_COLUMNS}
+          getRowId={(data) => data.name}
+        />
+      </div>
     </div>
   );
 }
