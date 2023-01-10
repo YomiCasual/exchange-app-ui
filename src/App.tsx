@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useRef, useState } from "react";
+import { HistoryTable } from "./components";
+import { HISTORY_TABLE_COLUMNS, TEST_HISTORY_DATA } from "./constants";
 
 function App() {
+  const [historyData, setHistoryData] = useState<any[]>([]);
+  const loaded = useRef(false);
+
+  useEffect(() => {
+    // socket.on("stream_rates", (data: any) => {
+    //   const rates = data.data?.rates;
+    //   console.log({ rates, data });
+    //   //   setHistoryData([...historyData, ...rates]);
+    // });
+    console.log("running");
+    const timeout = setTimeout(() => {
+      if (!loaded.current) {
+        console.log({ TEST_HISTORY_DATA });
+        setHistoryData([...historyData, ...TEST_HISTORY_DATA.rates]);
+        loaded.current = true;
+      }
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto">
+      <HistoryTable
+        rows={historyData}
+        columns={HISTORY_TABLE_COLUMNS}
+        getRowId={(data) => data.name}
+      />
     </div>
   );
 }
