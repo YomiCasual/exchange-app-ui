@@ -5,8 +5,8 @@ import { LoadingButton } from "@mui/lab";
 import { forwardRef } from "react";
 import MuiButton from "@mui/material/Button";
 
-import { CustomButtonProps } from "../types";
 import { customButtonTypes } from "./constant";
+import { CustomButtonProps } from "./types";
 
 /** JSX Element for all button type */
 export const CustomButton = forwardRef(
@@ -16,6 +16,7 @@ export const CustomButton = forwardRef(
       buttonType = "primary",
       loading,
       sx,
+      label,
       ...rest
     }: CustomButtonProps,
     ref
@@ -37,7 +38,7 @@ export const CustomButton = forwardRef(
         sx={{ ...buttonTypeConfig?.sx, ...sx }}
         disableElevation
       >
-        {children}
+        {label ? label : children}
       </Button>
     );
   }

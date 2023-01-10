@@ -47,4 +47,5 @@ export interface CustomButtonProps
   ) => void;
   target?: string;
   rel?: string;
+  label?: string;
 }
