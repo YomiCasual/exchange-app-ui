@@ -1,4 +1,10 @@
-import { OutlinedTextFieldProps, SelectProps } from "@mui/material";
+import { LoadingButtonProps } from "@mui/lab";
+import {
+  ButtonProps,
+  OutlinedTextFieldProps,
+  SelectProps,
+} from "@mui/material";
+import { FormEvent, MouseEvent } from "react";
 
 export interface CustomInputProps
   extends Partial<Omit<OutlinedTextFieldProps, "variant">> {
@@ -30,4 +36,15 @@ export interface SelectInputProps
       | "decimal";
   };
   value?: any;
+}
+
+export interface CustomButtonProps
+  extends Omit<ButtonProps, "onClick">,
+    Omit<LoadingButtonProps, "onClick" | "classes"> {
+  buttonType?: "primary" | "secondary" | "outlined" | "text";
+  onClick?: (
+    e?: FormEvent<HTMLFormElement> | MouseEvent<HTMLFormElement>
+  ) => void;
+  target?: string;
+  rel?: string;
 }

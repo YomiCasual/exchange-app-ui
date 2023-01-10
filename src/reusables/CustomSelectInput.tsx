@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import { ListItemText } from "@mui/material";
 import { SelectInputProps } from "./types";
 
-export const SelectInput = ({
+export const CustomSelectInput = ({
   options,
   onChange,
   name,
