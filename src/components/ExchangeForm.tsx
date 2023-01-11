@@ -1,33 +1,39 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
-import { CustomButton, CustomSelectInput } from "../reusables";
+import { CustomButton, CustomInput, CustomSelectInput } from "../reusables";
 
 const customStyles = {
-  width: "200px",
+  //   width: "200px",
 };
 
 const ExchangeForm = () => {
   return (
-    <header className="shadow-xl bg-white min-h-[200px] flex flex-col justify-center gap-4 ">
+    <header className="shadow-lg bg-white min-h-[150px] flex flex-col justify-center gap-4 pt-20 pb-10 px-8 md:px-0 ">
       <section className="app-container">
         <Typography variant="h4" className="!font-bold !text-2xl !mb-3">
           Exchange
         </Typography>
-        <div className=" flex items-center gap-4  ">
+        <div className=" flex flex-col md:flex-row items-center gap-4  ">
           <CustomSelectInput
             style={customStyles}
             options={[]}
             label="Currency From"
+            fullWidth
           />
-          <TextField label="Amount" style={customStyles} />
-          <p>=</p>
+          <CustomInput label="Amount" style={customStyles} />
+          <p className="hidden md:block">=</p>
           <CustomSelectInput
             style={customStyles}
             options={[]}
             label="Currency From"
+            fullWidth
           />
-          <TextField style={customStyles} label="Amount" />
-          <CustomButton label="Save" buttonType="secondary" />
+          <CustomInput style={customStyles} label="Amount" />
+          <CustomButton
+            label="Save"
+            buttonType="secondary"
+            className="w-full md:max-w-fit"
+          />
         </div>
       </section>
     </header>

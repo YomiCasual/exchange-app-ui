@@ -27,33 +27,31 @@ export const CustomSelectInput = ({
   };
 
   return (
-    <div>
-      <FormControl
-        sx={{ m: 1, minWidth: 120 }}
-        required={required}
-        disabled={disabled}
-        fullWidth
+    <FormControl
+      sx={{ m: 1, minWidth: 120 }}
+      required={required}
+      disabled={disabled}
+      fullWidth={rest?.fullWidth}
+    >
+      {label && (
+        <InputLabel id="demo-simple-select-helper-label">{label}</InputLabel>
+      )}
+      <Select
+        labelId={id}
+        id={id}
+        value={value}
+        label="Age"
+        name={name}
+        onChange={(event: any) => handleChange(event)}
+        {...rest}
       >
-        {label && (
-          <InputLabel id="demo-simple-select-helper-label">{label}</InputLabel>
-        )}
-        <Select
-          labelId={id}
-          id={id}
-          value={value}
-          label="Age"
-          name={name}
-          onChange={(event: any) => handleChange(event)}
-          {...rest}
-        >
-          {options.map((option: any) => (
-            <MenuItem key={option?.text} value={option}>
-              <ListItemText primary={option?.text} />
-            </MenuItem>
-          ))}
-        </Select>
-        {helperText && <FormHelperText>{helperText}</FormHelperText>}
-      </FormControl>
-    </div>
+        {options.map((option: any) => (
+          <MenuItem key={option?.text} value={option}>
+            <ListItemText primary={option?.text} />
+          </MenuItem>
+        ))}
+      </Select>
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+    </FormControl>
   );
 };

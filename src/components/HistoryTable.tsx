@@ -42,8 +42,7 @@ const HistoryTable = ({
   return (
     <Box
       sx={{
-        // height: 400,
-        width: 1,
+        width: "100% !important",
         "& .odd": {
           bgcolor: "#fdfdfd",
         },
@@ -64,6 +63,7 @@ const HistoryTable = ({
         }}
         rowHeight={55}
         sx={{
+          width: "100% !important",
           "& .MuiDataGrid-cell:hover": {
             color: "primary.main",
           },

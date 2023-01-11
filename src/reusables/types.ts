@@ -1,9 +1,10 @@
-import { LoadingButtonProps } from "@mui/lab";
+import { DesktopDatePickerProps, LoadingButtonProps } from "@mui/lab";
 import {
   ButtonProps,
   OutlinedTextFieldProps,
   SelectProps,
 } from "@mui/material";
+import dayjs from "dayjs";
 import { FormEvent, MouseEvent } from "react";
 
 export interface CustomInputProps
@@ -48,4 +49,10 @@ export interface CustomButtonProps
   target?: string;
   rel?: string;
   label?: string;
+}
+
+export interface CustomDatePickerProps extends DesktopDatePickerProps<any> {
+  label?: string;
+  name?: string;
+  onChange?: (value: dayjs.Dayjs | null) => void;
 }
