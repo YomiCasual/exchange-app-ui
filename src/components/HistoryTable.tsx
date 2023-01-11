@@ -6,7 +6,9 @@ import {
   GridRow,
 } from "@mui/x-data-grid";
 import clsx from "clsx";
-import { memo } from "react";
+import { memo, useState } from "react";
+import { useWindowSize } from "../hooks";
+import HistoryTableCards from "./HistoryTableCards";
 
 // Custom loading component
 const LoadingOverlay = () => {
@@ -33,12 +35,20 @@ const NoRowsOverlay = () => {
 const HistoryTable = ({
   rows: data,
   columns,
-  pageSize = 15,
+  //   pageSize = 15,
   className,
   ...rest
 }: DataGridProps & {
   nextPage?: () => void;
 }): JSX.Element => {
+  const [pageSize, setPageSize] = useState<number>(5);
+
+  const { width: clientWidth } = useWindowSize();
+
+  if (clientWidth && clientWidth <= 767) {
+    return <HistoryTableCards {...rest} rows={data} columns={columns} />;
+  }
+
   return (
     <Box
       sx={{
@@ -71,6 +81,10 @@ const HistoryTable = ({
             backgroundColor: "#e5e3e3",
           },
         }}
+        pageSize={pageSize}
+        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+        rowsPerPageOptions={[2, 5, 10]}
+        pagination
         {...rest}
       />
     </Box>

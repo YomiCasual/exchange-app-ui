@@ -3,22 +3,19 @@ export interface IExchangeRate {
   unit: string;
   type: string;
   usd_value: {
-    from_amount: number;
-    from_unit: string;
-    to_unit: string;
-    to_amount: number;
+    amount: number;
+    name: string;
+    unit: string;
   };
   one_btc_equivalent: number;
-  btc_value: {
-    from_amount: 1;
-    from_unit: string;
-    to_unit: string;
-    to_amount: number;
+  quote_value: {
+    amount: number;
+    name: string;
+    unit: string;
   };
   converted_value: {
-    from_amount: 1;
-    from_unit: string;
-    to_unit: string;
-    to_amount: number;
+    amount: number;
+    name: string;
+    unit: string;
   };
 }
