@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { HistoryTable } from "./components";
 import ExchangeForm from "./components/ExchangeForm";
@@ -30,7 +31,10 @@ function App() {
   return (
     <div>
       <ExchangeForm />
-      <div className="app-container">
+      <div className="app-container mt-[100px]">
+        <Typography variant="h4" className="!font-bold !text-xl !mb-3">
+          History
+        </Typography>
         <HistoryTable
           rows={historyData}
           columns={HISTORY_TABLE_COLUMNS}

@@ -1,5 +1,11 @@
-import { LinearProgress, Typography } from "@mui/material";
-import { DataGrid, DataGridProps, GridOverlay } from "@mui/x-data-grid";
+import { Box, LinearProgress, Typography } from "@mui/material";
+import {
+  DataGrid,
+  DataGridProps,
+  GridOverlay,
+  GridRow,
+} from "@mui/x-data-grid";
+import clsx from "clsx";
 import { memo } from "react";
 
 // Custom loading component
@@ -34,18 +40,53 @@ const HistoryTable = ({
   nextPage?: () => void;
 }): JSX.Element => {
   return (
-    <DataGrid
-      rows={data}
-      columns={columns}
-      autoHeight
-      headerHeight={40}
-      components={{
-        LoadingOverlay,
-        NoRowsOverlay,
+    <Box
+      sx={{
+        // height: 400,
+        width: 1,
+        "& .odd": {
+          bgcolor: "#fdfdfd",
+        },
+        "& .even": {
+          bgcolor: "#e5e3e3",
+        },
       }}
-      {...rest}
-    />
+    >
+      <DataGrid
+        rows={data}
+        columns={columns}
+        autoHeight
+        headerHeight={40}
+        components={{
+          LoadingOverlay,
+          NoRowsOverlay,
+          Row: CustomRow,
+        }}
+        rowHeight={55}
+        sx={{
+          "& .MuiDataGrid-cell:hover": {
+            color: "primary.main",
+          },
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: "#e5e3e3",
+          },
+        }}
+        {...rest}
+      />
+    </Box>
   );
 };
 
 export default memo(HistoryTable);
+
+const CustomRow = (props: any) => {
+  const { className, index, ...other } = props;
+
+  return (
+    <GridRow
+      index={index}
+      className={clsx(className, index % 2 === 0 ? "odd" : "even")}
+      {...other}
+    />
+  );
+};

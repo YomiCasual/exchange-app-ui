@@ -302,7 +302,7 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
   {
     ...commonColumnProps,
     field: "any",
-    headerName: "quote_amount",
+    headerName: "Amount 1",
     description: "The amount from",
     renderCell: (data: any) => {
       return data?.row?.quote_value.amount;
