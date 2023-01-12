@@ -39,7 +39,7 @@ const HistoryTable = ({
   className,
   ...rest
 }: DataGridProps & {
-  nextPage?: () => void;
+  mobileAction?: (data: any) => void;
 }): JSX.Element => {
   const [pageSize, setPageSize] = useState<number>(5);
 

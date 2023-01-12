@@ -1,14 +1,7 @@
-import { useAppHook } from "./../../hooks/useAppHook";
 import dayjs from "dayjs";
 import { useForm } from "react-hook-form";
 import { SECONDARY_DATE_FORMAT } from "../../libs";
-import { OptionProps } from "../../reusables/types";
 import useAppContext from "../../context/AppContext";
-
-interface CurrencyFieldProps {
-  crypto: OptionProps[];
-  fiat: OptionProps[];
-}
 
 export const useHistoryFilterForm = () => {
   const { handleFilter, clearFilter } = useAppContext();

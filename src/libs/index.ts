@@ -1,5 +1,4 @@
-import dayjs, { Dayjs } from "dayjs";
-import { ChangeEvent } from "react";
+import dayjs from "dayjs";
 import { OptionProps } from "../reusables/types";
 
 export const formatUnderScoreAndCapitalize = (value: string) => {
@@ -53,28 +52,39 @@ export const DISABLE_REFRESH = {
   revalidateOnReconnect: false,
 };
 
-export const getFormattedDate = (date: number) => {
-  return dayjs(date).format("DD/MM/YYYY hh:mm");
+export const getFormattedDate = (date: number | string) => {
+  return dayjs(date).format("DD/MM/YYYY hh:mm A");
 };
 
-export const transformNonEventChange = (
-  {
-    name,
-    value,
-  }: { name: string; value?: string | number | File | Blob | any },
-  domEvent = {}
-): ChangeEvent<HTMLInputElement> => {
-  const event = {
-    ...domEvent,
-    target: {
-      ...domEvent,
-      name,
-      value,
-    },
-  };
+export const formatNumberToCurrency = ({
+  number,
+  currencyCode = "NGN",
+  precision = 2,
+  removeCurrency = true,
+}: {
+  number: string | number;
+  currencyCode?: string;
+  precision?: number;
+  removeCurrency?: boolean;
+}): string => {
+  const formatter = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: currencyCode,
+    minimumFractionDigits: precision,
+  });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return event as any;
+  let value = Number(number);
+
+  if (isNaN(value)) {
+    value = 0;
+  }
+
+  let result = formatter.format(value);
+  if (removeCurrency) {
+    result = result.replace(/[^0-9.,]+/g, "");
+  }
+
+  return result;
 };
 
 export const DATE_PICKER_FORMATTER = "DD/MM/YYYY";

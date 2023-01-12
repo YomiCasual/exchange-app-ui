@@ -3,7 +3,12 @@ import { DataGridProps } from "@mui/x-data-grid";
 import React from "react";
 import { IExchangeRate } from "../api/types";
 
-const HistoryTableCards = ({ rows }: DataGridProps) => {
+const HistoryTableCards = ({
+  rows,
+  mobileAction,
+}: DataGridProps & {
+  mobileAction?: (data: any) => void;
+}) => {
   return (
     <div className="space-y-6">
       {rows.map((row: IExchangeRate) => {
@@ -18,6 +23,7 @@ const HistoryTableCards = ({ rows }: DataGridProps) => {
         } = row;
         return (
           <div
+            onClick={() => mobileAction?.(row)}
             key={_id}
             className="bg-gray-100 border px-4 py-6 rounded-lg space-y-1 relative cursor-pointer"
           >
