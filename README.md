@@ -26,11 +26,17 @@ This project was bootstrapped with
     ```
     yarn install
     ```
-4.  Wait for it to install and run:
+4.  At the root folder run, open the terminal and run:
+    ```
+    yarn install
+    ```
+5.  Make sure your API_BASE_URL is the same port your server is running, you can change it in '/libs/index.ts'
+
+6.  Wait for it to install and run:
     ```
     yarn  start
     ```
-5.  Wait for the app to build and go to localhost:3000 or the port shown from the terminal
+7.  Wait for the app to build and go to localhost:3000 or the port shown from the terminal
 
 ## Assumptions/Features added
 
