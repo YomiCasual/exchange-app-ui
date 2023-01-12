@@ -1,33 +1,12 @@
 import { Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
 import { HistoryTable } from "./components";
 import ExchangeForm from "./components/ExchangeForm";
 import HistoryFilterForm from "./components/HistoryFilterForm";
-import { HISTORY_TABLE_COLUMNS, TEST_HISTORY_DATA } from "./constants";
+import { HISTORY_TABLE_COLUMNS } from "./constants";
+import { useAppHook } from "./hooks";
 
 function App() {
-  const [historyData, setHistoryData] = useState<any[]>([]);
-  const loaded = useRef(false);
-
-  useEffect(() => {
-    // socket.on("stream_rates", (data: any) => {
-    //   const rates = data.data?.rates;
-    //   console.log({ rates, data });
-    //   //   setHistoryData([...historyData, ...rates]);
-    // });
-    console.log("running");
-    const timeout = setTimeout(() => {
-      if (!loaded.current) {
-        console.log({ TEST_HISTORY_DATA });
-        setHistoryData([...historyData, ...TEST_HISTORY_DATA.rates]);
-        loaded.current = true;
-      }
-    }, 5000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+  const { historyData } = useAppHook();
 
   return (
     <div>
@@ -40,7 +19,7 @@ function App() {
         <HistoryTable
           rows={historyData}
           columns={HISTORY_TABLE_COLUMNS}
-          getRowId={(data) => data.name}
+          getRowId={(data) => data._id}
         />
       </div>
     </div>

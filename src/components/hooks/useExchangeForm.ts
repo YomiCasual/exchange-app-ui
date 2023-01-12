@@ -51,15 +51,13 @@ export const useExchangeForm = () => {
       const exchangeFrom = exchangeRates[currencyFrom?.toLowerCase()];
       const exchangeTo = exchangeRates[currencyTo?.toLowerCase()];
 
-      const request = await http().post(API_ROUTES.CREATE_EXCHANGE, {
+      await http().post(API_ROUTES.CREATE_EXCHANGE, {
         ...data,
         currencyFrom: exchangeFrom?.name,
         unitFrom: exchangeFrom?.unit,
         currencyTo: exchangeTo?.name,
         unitTo: exchangeTo?.unit,
       });
-
-      console.log({ request });
     },
     (errors) => {
       console.log({ errors });

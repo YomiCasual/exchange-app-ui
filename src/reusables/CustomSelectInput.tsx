@@ -22,7 +22,6 @@ export const CustomSelectInput = ({
   const handleChange = (event: any) => {
     onChange?.(event?.target?.value);
   };
-  console.log({ value: rest?.value });
 
   return (
     <FormControl

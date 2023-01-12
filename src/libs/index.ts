@@ -2,7 +2,7 @@ import { OptionProps } from "../reusables/types";
 
 export const formatUnderScoreAndCapitalize = (value: string) => {
   if (!value) return "";
-  let newvalue = value.replaceAll("-", " ");
+  let newvalue = value.replaceAll("_", " ");
   return capitalizeWord(newvalue);
 };
 
