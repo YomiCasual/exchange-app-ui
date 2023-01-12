@@ -43,9 +43,9 @@ const HistoryTable = ({
 }): JSX.Element => {
   const [pageSize, setPageSize] = useState<number>(5);
 
-  const { width: clientWidth } = useWindowSize();
+  const { isMobile } = useWindowSize();
 
-  if (clientWidth && clientWidth <= 767) {
+  if (isMobile) {
     return <HistoryTableCards {...rest} rows={data} columns={columns} />;
   }
 

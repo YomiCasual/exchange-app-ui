@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState } from "react";
+import { MOBILE_SIZE } from "../libs";
 
 export const useWindowSize = () => {
   const isClient = typeof window === "object";
@@ -29,5 +30,8 @@ export const useWindowSize = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [getSize, isClient]);
-  return windowSize;
+
+  const isMobile = windowSize.width && windowSize.width <= MOBILE_SIZE;
+
+  return { ...windowSize, isMobile };
 };

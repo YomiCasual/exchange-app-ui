@@ -1,5 +1,5 @@
 import { getFormattedDate } from "./libs/index";
-import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
+import { GridColDef } from "@mui/x-data-grid";
 import { formatUnderScoreAndCapitalize } from "./libs";
 
 export const commonColumnProps: Omit<GridColDef, "field"> = {
@@ -49,8 +49,12 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     field: "type",
     headerName: "Type",
     description: "The type",
-    valueGetter: (data: any) => {
-      return formatUnderScoreAndCapitalize(data.value);
+    renderCell: (data: any) => {
+      const value = formatUnderScoreAndCapitalize(data.value);
+
+      const style =
+        data.value === "EXCHANGED" ? "text-blue-500" : "text-green-500";
+      return <p className={style}>{value}</p>;
     },
   },
 ];

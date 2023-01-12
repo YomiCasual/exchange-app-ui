@@ -79,3 +79,4 @@ export const transformNonEventChange = (
 
 export const DATE_PICKER_FORMATTER = "DD/MM/YYYY";
 export const SECONDARY_DATE_FORMAT = "YYYY-MM-DD";
+export const MOBILE_SIZE = 767;

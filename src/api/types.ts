@@ -1,21 +1,12 @@
 export interface IExchangeRate {
-  name: string;
-  unit: string;
+  amountFrom: string;
+  amountTo: string;
+  createdAt: string;
+  unitFrom: string;
+  unitTo: string;
+  currencyFrom: string;
+  currencyTo: string;
   type: string;
-  usd_value: {
-    amount: number;
-    name: string;
-    unit: string;
-  };
-  one_btc_equivalent: number;
-  quote_value: {
-    amount: number;
-    name: string;
-    unit: string;
-  };
-  converted_value: {
-    amount: number;
-    name: string;
-    unit: string;
-  };
+  updatedAt: string;
+  _id: "string";
 }

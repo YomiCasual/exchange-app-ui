@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useGetAllSavedExchanges } from "./../api/get-all-saved-exchanges";
 import { useRef, useState } from "react";
 import { socket } from "../libs/socket";
-import dayjs from "dayjs";
 
 export interface FilterProps {
   type?: string;

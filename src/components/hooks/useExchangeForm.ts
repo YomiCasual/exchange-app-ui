@@ -17,22 +17,25 @@ export const useExchangeForm = () => {
   const { data: exchangeRates, isLoading: exchangeRateLoading } =
     useGetExchangeRates();
 
-  const { control, handleSubmit, register, watch, setValue } = useForm({
-    defaultValues: {
-      currencyFrom: "",
-      amountFrom: "1",
-      currencyTo: "",
-      amountTo: "1",
-    },
-  });
+  const { control, handleSubmit, register, watch, setValue, formState } =
+    useForm({
+      defaultValues: {
+        currencyFrom: "",
+        amountFrom: "",
+        currencyTo: "",
+        amountTo: "",
+      },
+    });
 
   const amountFrom = watch("amountFrom");
   const currencyFrom = watch("currencyFrom");
   const currencyTo = watch("currencyTo");
 
+  const shouldNotExchangeData =
+    exchangeRateLoading || !amountFrom || !currencyTo || !currencyFrom;
+
   const amountTo = useMemo(() => {
-    if (exchangeRateLoading || !amountFrom || !currencyTo || !currencyFrom)
-      return 1;
+    if (shouldNotExchangeData) return 1;
     const amount = currencyConverter({
       rates: exchangeRates,
       amountFrom: Number(amountFrom),
@@ -40,10 +43,14 @@ export const useExchangeForm = () => {
       to: currencyTo,
     });
     return amount;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountFrom, exchangeRateLoading, currencyTo, currencyFrom]);
 
   useEffect(() => {
-    setValue("amountTo", amountTo?.toString());
+    if (!shouldNotExchangeData) {
+      setValue("amountTo", amountTo?.toString());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountTo]);
 
   const onSubmit = handleSubmit(
@@ -91,5 +98,6 @@ export const useExchangeForm = () => {
     control,
     register,
     onSubmit,
+    formState,
   };
 };

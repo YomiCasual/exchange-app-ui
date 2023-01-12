@@ -30,21 +30,35 @@ export const CustomSelectInput = ({
       disabled={disabled}
       fullWidth={rest?.fullWidth}
     >
-      {label && (
-        <InputLabel id="demo-simple-select-helper-label">{label}</InputLabel>
-      )}
+      {label && <InputLabel>{label}</InputLabel>}
       <Select
         labelId={id}
-        id={id}
-        label="Age"
+        id={"id"}
+        label={label}
         name={name}
         onChange={(event: any) => handleChange(event)}
         {...rest}
         value={rest?.value?.value}
+        sx={{
+          fontSize: "14px",
+          "& .MuiTypography-root": {
+            fontSize: "14px",
+            margin: "0",
+            padding: "0",
+          },
+          "& .MuiListItemText-root": {
+            margin: "0",
+            height: "18px",
+          },
+          "& .MuiInputLabel-animated": {
+            fontSize: "14px",
+            border: "2px solid black!important",
+          },
+        }}
       >
         {options.map((option: any) => (
           <MenuItem key={option?.value} value={option?.value}>
-            <ListItemText primary={option?.label} />
+            <ListItemText primary={option?.label} sx={{ fontSize: "12px" }} />
           </MenuItem>
         ))}
       </Select>
