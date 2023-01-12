@@ -7,7 +7,7 @@ export const commonColumnProps: Omit<GridColDef, "field"> = {
   headerAlign: "left",
   flex: 1,
   headerClassName: "!border-hippo-light-gray focus-within:!outline-none",
-  sortable: false,
+  sortable: true,
 };
 
 export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
