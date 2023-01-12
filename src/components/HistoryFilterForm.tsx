@@ -1,6 +1,7 @@
 import { TextField, Typography } from "@mui/material";
 import React from "react";
 import { Controller } from "react-hook-form";
+import useAppContext from "../context/AppContext";
 import { convertToSelectFieldsOptions } from "../libs";
 import {
   CustomButton,
@@ -10,7 +11,7 @@ import {
 import { useHistoryFilterForm } from "./hooks";
 
 const HistoryFilterForm = () => {
-  const { control, onSubmit } = useHistoryFilterForm();
+  const { control, onSubmit, handleClearFilter } = useHistoryFilterForm();
 
   return (
     <form className=" flex items-center gap-4 py-4" onSubmit={onSubmit}>
@@ -47,6 +48,12 @@ const HistoryFilterForm = () => {
         }}
       />
       <CustomButton label="Filter" buttonType="outlined" type="submit" />
+      <CustomButton
+        label="Clear Filter"
+        buttonType="secondary"
+        type="button"
+        onClick={handleClearFilter}
+      />
     </form>
   );
 };

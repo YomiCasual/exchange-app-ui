@@ -1,21 +1,17 @@
 import React, { createContext, ReactNode } from "react";
 import { useAppHook } from "../hooks";
 
-interface AppContextProviderProps {
-  historyData: any[];
-}
+type AppContextProviderProps = ReturnType<typeof useAppHook> & {};
 
-const AppContext = createContext<AppContextProviderProps>({
-  historyData: [],
-} as AppContextProviderProps);
+const AppContext = createContext<AppContextProviderProps>(
+  {} as AppContextProviderProps
+);
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
-  const { historyData } = useAppHook();
+  const appHook = useAppHook();
 
   return (
-    <AppContext.Provider value={{ historyData }}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={{ ...appHook }}>{children}</AppContext.Provider>
   );
 };
 

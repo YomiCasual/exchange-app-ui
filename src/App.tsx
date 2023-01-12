@@ -6,7 +6,7 @@ import { HISTORY_TABLE_COLUMNS } from "./constants";
 import useAppContext from "./context/AppContext";
 
 function App() {
-  const { historyData } = useAppContext();
+  const { filteredData } = useAppContext();
   return (
     <div>
       <ExchangeForm />
@@ -16,7 +16,7 @@ function App() {
         </Typography>
         <HistoryFilterForm />
         <HistoryTable
-          rows={historyData}
+          rows={filteredData}
           columns={HISTORY_TABLE_COLUMNS}
           getRowId={(data) => data._id}
         />

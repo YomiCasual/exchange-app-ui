@@ -27,7 +27,6 @@ export const CustomDatePicker = ({
       <Stack spacing={3}>
         <DesktopDatePicker
           label={label}
-          minDate={dayjs(new Date())}
           inputFormat={DATE_PICKER_FORMATTER}
           value={newValue}
           onChange={handleChange}
