@@ -1,3 +1,4 @@
+import { getFormattedDate } from "./libs/index";
 import { GridColDef, GridRowsProp } from "@mui/x-data-grid";
 import { formatUnderScoreAndCapitalize } from "./libs";
 
@@ -15,6 +16,9 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     field: "createdAt",
     headerName: "Date & Time",
     description: "The date and time created",
+    valueGetter: (data: any) => {
+      return getFormattedDate(data.value);
+    },
   },
   {
     ...commonColumnProps,

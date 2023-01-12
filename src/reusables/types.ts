@@ -60,5 +60,5 @@ export interface CustomButtonProps
 export interface CustomDatePickerProps extends DesktopDatePickerProps<any> {
   label?: string;
   name?: string;
-  onChange?: (value: dayjs.Dayjs | null) => void;
+  onChange?: (value: string | null) => void;
 }

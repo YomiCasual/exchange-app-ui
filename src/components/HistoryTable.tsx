@@ -83,7 +83,7 @@ const HistoryTable = ({
         }}
         pageSize={pageSize}
         onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-        rowsPerPageOptions={[2, 5, 10]}
+        rowsPerPageOptions={[5, 10, 20]}
         pagination
         {...rest}
       />

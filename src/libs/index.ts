@@ -1,3 +1,5 @@
+import dayjs, { Dayjs } from "dayjs";
+import { ChangeEvent } from "react";
 import { OptionProps } from "../reusables/types";
 
 export const formatUnderScoreAndCapitalize = (value: string) => {
@@ -50,3 +52,30 @@ export const DISABLE_REFRESH = {
   revalidateOnFocus: false,
   revalidateOnReconnect: false,
 };
+
+export const getFormattedDate = (date: number) => {
+  return dayjs(date).format("DD/MM/YYYY hh:mm");
+};
+
+export const transformNonEventChange = (
+  {
+    name,
+    value,
+  }: { name: string; value?: string | number | File | Blob | any },
+  domEvent = {}
+): ChangeEvent<HTMLInputElement> => {
+  const event = {
+    ...domEvent,
+    target: {
+      ...domEvent,
+      name,
+      value,
+    },
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return event as any;
+};
+
+export const DATE_PICKER_FORMATTER = "DD/MM/YYYY";
+export const SECONDARY_DATE_FORMAT = "YYYY-MM-DD";
