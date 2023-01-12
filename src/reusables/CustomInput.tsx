@@ -6,27 +6,20 @@ import { CustomInputProps } from "./types";
 /** Component for all text inputs (text, email and so on) */
 export const CustomInput = forwardRef(
   (
-    {
-      name,
-      type = "text",
-      id,
-      helperText = "",
-      hasError = false,
-      ...rest
-    }: CustomInputProps,
+    { name, id, helperText = "", hasError = false, ...rest }: CustomInputProps,
     ref: Ref<HTMLDivElement>
   ) => {
     return (
       <TextField
         ref={ref}
         fullWidth
-        {...rest}
         InputLabelProps={{ shrink: true, htmlFor: name || id }}
         name={name ?? id}
         id={id ?? name}
         variant="outlined"
         error={hasError as boolean}
         helperText={helperText}
+        {...rest}
       />
     );
   }

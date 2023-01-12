@@ -6,10 +6,13 @@ import { IExchangeRate } from "../api/types";
 const HistoryTableCards = ({ rows }: DataGridProps) => {
   return (
     <div className="space-y-6">
-      {rows.map((row: IExchangeRate) => {
+      {rows.map((row: IExchangeRate, index) => {
         const { quote_value, usd_value } = row;
         return (
-          <div className="bg-gray-100 border px-4 py-6 rounded-lg space-y-1 relative cursor-pointer">
+          <div
+            key={index}
+            className="bg-gray-100 border px-4 py-6 rounded-lg space-y-1 relative cursor-pointer"
+          >
             <Typography component={"h4"} className="!text-lg !font-semibold">
               {quote_value.name} - {usd_value.name}
             </Typography>

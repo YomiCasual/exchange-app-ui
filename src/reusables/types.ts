@@ -15,13 +15,19 @@ export interface CustomInputProps
   label?: string;
 }
 
+export interface OptionProps {
+  label: string;
+  value: string;
+}
+
 export interface SelectInputProps
   extends Pick<CustomInputProps, "onChange" | "onBlur">,
     Partial<Omit<SelectProps, "onChange" | "onBlur">> {
   id?: string;
   label?: string;
   name?: string;
-  options: any;
+  options: OptionProps[];
+  onChange?: any;
   hasError?: boolean;
   helperText?: string;
   inputProps?: {

@@ -33,11 +33,11 @@ const SwrProvider = ({ children }: { children: ReactNode }): JSX.Element => {
           //Check if the error status code is for expired token code
           console.error({ error: error.response });
         },
-        refreshInterval: 60000,
+        // refreshInterval: 60000,
         revalidateOnFocus: true,
         revalidateIfStale: true,
-        revalidateOnReconnect: true,
-        refreshWhenHidden: true,
+        revalidateOnReconnect: false,
+        refreshWhenHidden: false,
       }}
     >
       {children}

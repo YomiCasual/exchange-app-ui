@@ -13,271 +13,94 @@ export const TEST_HISTORY_DATA = {
     {
       name: "Ether",
       unit: "ETH",
-      type: "EXCHANGED",
+      value: 13.078,
+      type: "crypto",
       quote_value: {
-        amount: 1,
-        unit: "ETH",
-        name: "Ether",
-      },
-      usd_value: {
-        unit: "$",
-        amount: 1338.123351733,
-        name: "US Dollar",
-      },
-      one_btc_equivalent: 13.044,
-      btc_value: {
-        unit: "BTC",
-        amount: 0.0766636,
-        name: "Bitcoin",
-      },
-      converted_value: {
-        unit: "BTC",
-        amount: 0.0766636,
-        name: "Bitcoin",
+        currencyFrom: "Ether",
+        amountFrom: 1,
+        unitFrom: "ETH",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "1342.671050619",
+        type: "EXCHANGED",
       },
     },
     {
       name: "Bitcoin",
       unit: "BTC",
-      type: "EXCHANGED",
+      value: 1,
+      type: "crypto",
       quote_value: {
-        amount: 1,
-        unit: "BTC",
-        name: "Bitcoin",
-      },
-      usd_value: {
-        unit: "$",
-        amount: 17454.481,
-        name: "US Dollar",
-      },
-      one_btc_equivalent: 1,
-      btc_value: {
-        unit: "BTC",
-        amount: 1,
-        name: "Bitcoin",
-      },
-      converted_value: {
-        unit: "BTC",
-        amount: 1,
-        name: "Bitcoin",
+        currencyFrom: "Bitcoin",
+        amountFrom: 1,
+        unitFrom: "BTC",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "17559.452000000",
+        type: "EXCHANGED",
       },
     },
     {
       name: "XRP",
       unit: "XRP",
-      type: "EXCHANGED",
+      value: 47354.372,
+      type: "crypto",
       quote_value: {
-        amount: 1,
-        unit: "XRP",
-        name: "XRP",
-      },
-      usd_value: {
-        unit: "$",
-        amount: 0.352840006,
-        name: "US Dollar",
-      },
-      one_btc_equivalent: 49468.543,
-      btc_value: {
-        unit: "BTC",
-        amount: 0.000020215,
-        name: "Bitcoin",
-      },
-      converted_value: {
-        unit: "BTC",
-        amount: 0.000020215,
-        name: "Bitcoin",
+        currencyFrom: "XRP",
+        amountFrom: 1,
+        unitFrom: "XRP",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "0.370809521",
+        type: "EXCHANGED",
       },
     },
     {
       name: "US Dollar",
       unit: "$",
-      type: "EXCHANGED",
+      value: 17559.452,
+      type: "fiat",
       quote_value: {
-        amount: 1,
-        unit: "$",
-        name: "US Dollar",
-      },
-      usd_value: {
-        unit: "$",
-        amount: 1,
-        name: "US Dollar",
-      },
-      one_btc_equivalent: 17454.481,
-      btc_value: {
-        unit: "BTC",
-        amount: 0.000057292,
-        name: "Bitcoin",
-      },
-      converted_value: {
-        unit: "BTC",
-        amount: 0.000057292,
-        name: "Bitcoin",
+        currencyFrom: "US Dollar",
+        amountFrom: 1,
+        unitFrom: "$",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "1.000000000",
+        type: "EXCHANGED",
       },
     },
     {
       name: "Euro",
       unit: "€",
-      type: "EXCHANGED",
+      value: 16323.917,
+      type: "fiat",
       quote_value: {
-        amount: 1,
-        unit: "€",
-        name: "Euro",
+        currencyFrom: "Euro",
+        amountFrom: 1,
+        unitFrom: "€",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "1.075688635",
+        type: "EXCHANGED",
       },
-      usd_value: {
-        unit: "$",
-        amount: 1.073493534,
-        name: "US Dollar",
-      },
-      one_btc_equivalent: 16259.512,
-      btc_value: {
-        unit: "BTC",
-        amount: 0.000061502,
-        name: "Bitcoin",
-      },
-      converted_value: {
-        unit: "BTC",
-        amount: 0.000061502,
-        name: "Bitcoin",
+    },
+    {
+      name: "British Pound Sterling",
+      unit: "£",
+      value: 14453.589,
+      type: "fiat",
+      quote_value: {
+        currencyFrom: "British Pound Sterling",
+        amountFrom: 1,
+        unitFrom: "£",
+        currencyTo: "US Dollar",
+        unitTo: "$",
+        amountTo: "1.214885244",
+        type: "EXCHANGED",
       },
     },
   ],
-  data: {
-    msg: "Successfully fetched",
-    data: {
-      rates: [
-        {
-          name: "Ether",
-          unit: "ETH",
-          type: "EXCHANGED",
-          quote_value: {
-            amount: 1,
-            unit: "ETH",
-            name: "Ether",
-          },
-          usd_value: {
-            unit: "$",
-            amount: 1338.123351733,
-            name: "US Dollar",
-          },
-          one_btc_equivalent: 13.044,
-          btc_value: {
-            unit: "BTC",
-            amount: 0.0766636,
-            name: "Bitcoin",
-          },
-          converted_value: {
-            unit: "BTC",
-            amount: 0.0766636,
-            name: "Bitcoin",
-          },
-        },
-        {
-          name: "Bitcoin",
-          unit: "BTC",
-          type: "EXCHANGED",
-          quote_value: {
-            amount: 1,
-            unit: "BTC",
-            name: "Bitcoin",
-          },
-          usd_value: {
-            unit: "$",
-            amount: 17454.481,
-            name: "US Dollar",
-          },
-          one_btc_equivalent: 1,
-          btc_value: {
-            unit: "BTC",
-            amount: 1,
-            name: "Bitcoin",
-          },
-          converted_value: {
-            unit: "BTC",
-            amount: 1,
-            name: "Bitcoin",
-          },
-        },
-        {
-          name: "XRP",
-          unit: "XRP",
-          type: "EXCHANGED",
-          quote_value: {
-            amount: 1,
-            unit: "XRP",
-            name: "XRP",
-          },
-          usd_value: {
-            unit: "$",
-            amount: 0.352840006,
-            name: "US Dollar",
-          },
-          one_btc_equivalent: 49468.543,
-          btc_value: {
-            unit: "BTC",
-            amount: 0.000020215,
-            name: "Bitcoin",
-          },
-          converted_value: {
-            unit: "BTC",
-            amount: 0.000020215,
-            name: "Bitcoin",
-          },
-        },
-        {
-          name: "US Dollar",
-          unit: "$",
-          type: "EXCHANGED",
-          quote_value: {
-            amount: 1,
-            unit: "$",
-            name: "US Dollar",
-          },
-          usd_value: {
-            unit: "$",
-            amount: 1,
-            name: "US Dollar",
-          },
-          one_btc_equivalent: 17454.481,
-          btc_value: {
-            unit: "BTC",
-            amount: 0.000057292,
-            name: "Bitcoin",
-          },
-          converted_value: {
-            unit: "BTC",
-            amount: 0.000057292,
-            name: "Bitcoin",
-          },
-        },
-        {
-          name: "Euro",
-          unit: "€",
-          type: "EXCHANGED",
-          quote_value: {
-            amount: 1,
-            unit: "€",
-            name: "Euro",
-          },
-          usd_value: {
-            unit: "$",
-            amount: 1.073493534,
-            name: "US Dollar",
-          },
-          one_btc_equivalent: 16259.512,
-          btc_value: {
-            unit: "BTC",
-            amount: 0.000061502,
-            name: "Bitcoin",
-          },
-          converted_value: {
-            unit: "BTC",
-            amount: 0.000061502,
-            name: "Bitcoin",
-          },
-        },
-      ],
-    },
-  },
 };
 
 export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
@@ -292,12 +115,9 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
   },
   {
     ...commonColumnProps,
-    field: "quote_value",
+    field: "name",
     headerName: "Currency From",
     description: "The Currency converted from",
-    valueGetter: (data: any) => {
-      return data?.row?.name;
-    },
   },
   {
     ...commonColumnProps,
@@ -305,16 +125,16 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     headerName: "Amount 1",
     description: "The amount from",
     renderCell: (data: any) => {
-      return data?.row?.quote_value.amount;
+      return data?.row?.quote_value.amountFrom;
     },
   },
   {
     ...commonColumnProps,
-    field: "usd_value",
+    field: "quote_value",
     headerName: "Currency To",
     description: "The amount to",
     valueGetter: (data: any) => {
-      return data.value.name;
+      return data.value.currencyTo;
     },
   },
   {
@@ -323,13 +143,16 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     headerName: "Amount 2",
     description: "The amount to",
     renderCell: (data: any) => {
-      return data?.row?.usd_value.amount;
+      return data?.row?.quote_value.amountTo;
     },
   },
   {
     ...commonColumnProps,
-    field: "type",
+    field: "currency_type",
     headerName: "Type",
     description: "The type",
+    renderCell: (data: any) => {
+      return data?.row?.quote_value.type;
+    },
   },
 ];

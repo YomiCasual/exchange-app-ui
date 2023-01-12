@@ -19,12 +19,10 @@ export const CustomSelectInput = ({
   disabled,
   ...rest
 }: SelectInputProps) => {
-  const [value, setValue] = React.useState("");
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-    onChange?.(event);
+  const handleChange = (event: any) => {
+    onChange?.(event?.target?.value);
   };
+  console.log({ value: rest?.value });
 
   return (
     <FormControl
@@ -39,15 +37,15 @@ export const CustomSelectInput = ({
       <Select
         labelId={id}
         id={id}
-        value={value}
         label="Age"
         name={name}
         onChange={(event: any) => handleChange(event)}
         {...rest}
+        value={rest?.value?.value}
       >
         {options.map((option: any) => (
-          <MenuItem key={option?.text} value={option}>
-            <ListItemText primary={option?.text} />
+          <MenuItem key={option?.value} value={option?.value}>
+            <ListItemText primary={option?.label} />
           </MenuItem>
         ))}
       </Select>
