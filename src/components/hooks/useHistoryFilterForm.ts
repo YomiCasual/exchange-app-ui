@@ -21,12 +21,10 @@ export const useHistoryFilterForm = () => {
   });
 
   const onSubmit = handleSubmit(
-    async (data, errors: any) => {
+    async (data) => {
       handleFilter({ ...data });
     },
-    (errors) => {
-      console.log({ errors });
-    }
+    (errors) => {}
   );
 
   const handleClearFilter = () => {

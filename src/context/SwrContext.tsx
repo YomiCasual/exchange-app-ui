@@ -12,7 +12,7 @@ const SwrProvider = ({ children }: { children: ReactNode }): JSX.Element => {
   const makeRequest = http();
 
   // Construct Swr fetcher
-  const fetcher = (...url: any) => {
+  const fetcher = (...url: string[]) => {
     const requests = (singleUrl: string) =>
       makeRequest.get(singleUrl).then((res) => res?.data?.data);
     if (url.length > 1) {

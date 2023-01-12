@@ -54,7 +54,7 @@ export const useExchangeForm = () => {
   }, [amountTo]);
 
   const onSubmit = handleSubmit(
-    async (data, errors: any) => {
+    async (data) => {
       const exchangeFrom = exchangeRates[currencyFrom?.toLowerCase()];
       const exchangeTo = exchangeRates[currencyTo?.toLowerCase()];
 

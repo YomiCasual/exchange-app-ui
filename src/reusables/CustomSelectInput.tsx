@@ -5,7 +5,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { ListItemText } from "@mui/material";
-import { SelectInputProps } from "./types";
+import { OptionProps, SelectInputProps } from "./types";
 
 export const CustomSelectInput = ({
   options,
@@ -38,7 +38,7 @@ export const CustomSelectInput = ({
         name={name}
         onChange={(event: any) => handleChange(event)}
         {...rest}
-        value={rest?.value?.value}
+        value={rest?.value}
         sx={{
           fontSize: "14px",
           "& .MuiTypography-root": {
@@ -56,7 +56,7 @@ export const CustomSelectInput = ({
           },
         }}
       >
-        {options.map((option: any) => (
+        {options.map((option: OptionProps) => (
           <MenuItem key={option?.value} value={option?.value}>
             <ListItemText primary={option?.label} sx={{ fontSize: "12px" }} />
           </MenuItem>

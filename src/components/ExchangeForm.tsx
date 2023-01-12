@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import React from "react";
 import { Controller } from "react-hook-form";
 import { CustomButton, CustomInput, CustomSelectInput } from "../reusables";
 import { useExchangeForm } from "./hooks";

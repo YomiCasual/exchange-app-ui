@@ -42,7 +42,7 @@ export interface SelectInputProps
       | "numeric"
       | "decimal";
   };
-  value?: any;
+  value?: string;
 }
 
 export interface CustomButtonProps
