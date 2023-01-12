@@ -20,7 +20,7 @@ This project was bootstrapped with
 1.  Ensure you have node installed on your system
 2.  Clone the repository by running
     ```
-    git clone
+    git clone https://github.com/YomiCasual/exchange-app-ui.git
     ```
 3.  At the root folder run, open the terminal and run:
     ```
@@ -31,11 +31,6 @@ This project was bootstrapped with
     yarn  start
     ```
 5.  Wait for the app to build and go to localhost:3000 or the port shown from the terminal
-
-6.  To run the test, run:
-    ```
-     npm run test
-    ```
 
 ## Assumptions/Features added
 
