@@ -33,7 +33,6 @@ export const useAppHook = () => {
       toast("Live prices fetched successfully");
     });
     socket.on("exchange_rates", (data: any) => {
-      console.log("exchanged");
       setHistoryData((prevHistory) => [...data, ...prevHistory]);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

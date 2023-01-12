@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Exchange App UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Tools
 
-## Available Scripts
+This project was bootstrapped with
 
-In the project directory, you can run:
+- React(Typescript]
+- Sass (BEM)
+- Context (State Management)
+- SWR (for data fetching)
+- React Toastify (for notification)
+- React Hook Form (Validation)
+- Dayjs (For date manipulation)
+- Material UI (For UI components)
+- Tailwind (Custom CSS styling)
+- Socket.io (for streaming data -> prices)
 
-### `yarn start`
+## Project Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  Ensure you have node installed on your system
+2.  Clone the repository by running
+    ```
+    git clone
+    ```
+3.  At the root folder run, open the terminal and run:
+    ```
+    yarn install
+    ```
+4.  Wait for it to install and run:
+    ```
+    yarn  start
+    ```
+5.  Wait for the app to build and go to localhost:3000 or the port shown from the terminal
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+6.  To run the test, run:
+    ```
+     npm run test
+    ```
 
-### `yarn test`
+## Assumptions/Features added
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Added Excahnge Form
+2. The exchange button is disabled until the right paramaters are added
+3. The exchange is made by fetching live prices and doing the appropriate conversion
+4. The application is responsive
+5. Filtering is added to the history table and ability to clear filter
+6. Table can be customized to include number of data to display, sorting and, comparing or deleting columns
+7. Live prices are being streamed
 
-### `yarn build`
+## Requirements Not Covered
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All Necessary requirements were met according to the documents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Issues faced
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+No issue faced
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Thank You
