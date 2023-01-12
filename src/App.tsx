@@ -3,11 +3,10 @@ import { HistoryTable } from "./components";
 import ExchangeForm from "./components/ExchangeForm";
 import HistoryFilterForm from "./components/HistoryFilterForm";
 import { HISTORY_TABLE_COLUMNS } from "./constants";
-import { useAppHook } from "./hooks";
+import useAppContext from "./context/AppContext";
 
 function App() {
-  const { historyData } = useAppHook();
-
+  const { historyData } = useAppContext();
   return (
     <div>
       <ExchangeForm />

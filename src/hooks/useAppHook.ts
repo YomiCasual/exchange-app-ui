@@ -5,6 +5,8 @@ import { socket } from "../libs/socket";
 
 export const useAppHook = () => {
   const [historyData, setHistoryData] = useState<any[]>([]);
+  const [filteredData, setFilterdData] = useState<any[]>([]);
+  const [isFiltering, setisFiltering] = useState(false);
   const loaded = useRef(false);
 
   const { data } = useGetAllSavedExchanges();
@@ -12,6 +14,7 @@ export const useAppHook = () => {
   useEffect(() => {
     if (data && !loaded.current) {
       setHistoryData(data);
+      setFilterdData(data);
       loaded.current = true;
     }
   }, [data]);
@@ -25,5 +28,10 @@ export const useAppHook = () => {
 
   return {
     historyData,
+    setHistoryData,
+    setFilterdData,
+    filteredData,
+    isFiltering,
+    setisFiltering,
   };
 };
