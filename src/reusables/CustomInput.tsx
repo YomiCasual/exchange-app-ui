@@ -31,15 +31,15 @@ export const CustomInput = forwardRef(
           fullWidth
           name={name}
           label={rest.label}
-          onValueChange={(value) => {
+          {...(rest as any)}
+          onChange={(e) => {
             rest?.onChange?.(
               transformNonEventChange({
                 name,
-                value: value?.value,
+                value: e.target.value?.replaceAll(",", ""),
               })
             );
           }}
-          {...(rest as any)}
         />
       );
     }

@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { DataGridProps } from "@mui/x-data-grid";
 import React from "react";
 import { IExchangeRate } from "../api/types";
+import { formatNumberToCurrency } from "../libs";
 
 const HistoryTableCards = ({
   rows,
@@ -31,7 +32,10 @@ const HistoryTableCards = ({
               {currencyFrom} &rarr; {currencyTo}
             </Typography>
             <Typography>
-              Amount: {`${unitFrom} ${amountFrom} =  ${unitTo} ${amountTo}`}
+              Amount:{" "}
+              {`${unitFrom} ${formatNumberToCurrency({
+                number: amountFrom,
+              })} =  ${unitTo} ${formatNumberToCurrency({ number: amountTo })}`}
             </Typography>
 
             <div className="absolute h-4 w-4 rounded-full bg-green-500 top-3 right-4"></div>

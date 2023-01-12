@@ -53,6 +53,7 @@ export const useExchangeForm = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amountTo]);
+  console.log({ amountTo, amountFrom });
 
   const onSubmit = handleSubmit(
     async (data) => {
