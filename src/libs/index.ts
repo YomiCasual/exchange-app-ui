@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import dayjs from "dayjs";
 import { OptionProps } from "../reusables/types";
 
@@ -58,19 +59,21 @@ export const getFormattedDate = (date: number | string) => {
 
 export const formatNumberToCurrency = ({
   number,
-  currencyCode = "NGN",
-  precision = 2,
+  currencyCode = "USD",
+  precision = 0,
+  language = "en-US",
   removeCurrency = true,
 }: {
   number: string | number;
   currencyCode?: string;
   precision?: number;
+  language?: string;
   removeCurrency?: boolean;
 }): string => {
-  const formatter = new Intl.NumberFormat("en-NG", {
+  const formatter = new Intl.NumberFormat(language, {
     style: "currency",
     currency: currencyCode,
-    minimumFractionDigits: precision,
+    maximumFractionDigits: precision ? 2 : 20,
   });
 
   let value = Number(number);
@@ -80,11 +83,49 @@ export const formatNumberToCurrency = ({
   }
 
   let result = formatter.format(value);
+
   if (removeCurrency) {
     result = result.replace(/[^0-9.,]+/g, "");
   }
 
   return result;
+};
+
+export const formatAmountWithDecimal = (value: string) => {
+  const amountString = (value || "").toString();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [amount, decimal = "", ...others] = amountString.split(".");
+
+  const hasDecimal = amountString.indexOf(".") !== -1;
+
+  const replacedComma = amount.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
+
+  const formattedAmount = hasDecimal
+    ? `${replacedComma}.${decimal}`
+    : `${replacedComma}`;
+
+  return formattedAmount;
+};
+
+export const transformNonEventChange = (
+  {
+    name,
+    value,
+  }: { name: string; value?: string | number | File | Blob | any },
+  domEvent = {}
+): ChangeEvent<HTMLInputElement> => {
+  const event = {
+    ...domEvent,
+    target: {
+      ...domEvent,
+      name,
+      value,
+    },
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return event as any;
 };
 
 export const DATE_PICKER_FORMATTER = "DD/MM/YYYY";

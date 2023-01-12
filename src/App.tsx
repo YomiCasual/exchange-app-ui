@@ -16,8 +16,6 @@ function App() {
   const [selectedExchange, setSelectedExchange] =
     useState<IExchangeRate | null>();
 
-  console.log({ selectedExchange });
-
   return (
     <>
       <div>

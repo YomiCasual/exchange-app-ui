@@ -4,7 +4,6 @@ import {
   OutlinedTextFieldProps,
   SelectProps,
 } from "@mui/material";
-import dayjs from "dayjs";
 import { FormEvent, MouseEvent } from "react";
 
 export interface CustomInputProps
@@ -13,6 +12,8 @@ export interface CustomInputProps
   hasError?: boolean;
   helperText?: string;
   label?: string;
+  inputType?: "amount" | "password";
+  name: string;
 }
 
 export interface OptionProps {

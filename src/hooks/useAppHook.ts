@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+import { IExchangeRate } from "./../api/types";
 import { useEffect } from "react";
 import { useGetAllSavedExchanges } from "./../api/get-all-saved-exchanges";
 import { useRef, useState } from "react";
@@ -10,8 +12,8 @@ export interface FilterProps {
 }
 
 export const useAppHook = () => {
-  const [historyData, setHistoryData] = useState<any[]>([]);
-  const [filteredData, setFilterdData] = useState<any[]>([]);
+  const [historyData, setHistoryData] = useState<IExchangeRate[]>([]);
+  const [filteredData, setFilterdData] = useState<IExchangeRate[]>([]);
   const [isFiltering, setisFiltering] = useState(false);
   const loaded = useRef(false);
 
@@ -28,12 +30,23 @@ export const useAppHook = () => {
   useEffect(() => {
     socket.on("stream_rates", (data: any) => {
       setHistoryData((prevHistory) => [...data, ...prevHistory]);
+      toast("Live prices fetched successfully");
+    });
+    socket.on("exchange_rates", (data: any) => {
+      console.log("exchanged");
+      setHistoryData((prevHistory) => [...data, ...prevHistory]);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
 
+  useEffect(() => {
+    setFilterdData(historyData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [historyData.length]);
+
   const clearFilter = () => {
     setFilterdData(historyData);
+    setisFiltering(false);
   };
 
   const handleFilter = ({ type, fromDate, toDate }: FilterProps) => {
@@ -57,6 +70,7 @@ export const useAppHook = () => {
       );
     }
 
+    setisFiltering(true);
     setFilterdData(newFilteredData);
   };
 

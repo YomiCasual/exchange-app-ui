@@ -4,7 +4,7 @@ import { SECONDARY_DATE_FORMAT } from "../../libs";
 import useAppContext from "../../context/AppContext";
 
 export const useHistoryFilterForm = () => {
-  const { handleFilter, clearFilter } = useAppContext();
+  const { handleFilter, clearFilter, isFiltering } = useAppContext();
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       fromDate: dayjs(new Date()).format(SECONDARY_DATE_FORMAT),
@@ -35,5 +35,6 @@ export const useHistoryFilterForm = () => {
     control,
     onSubmit,
     handleClearFilter,
+    isFiltering,
   };
 };

@@ -1,4 +1,4 @@
-import { getFormattedDate } from "./libs/index";
+import { formatNumberToCurrency, getFormattedDate } from "./libs/index";
 import { GridColDef } from "@mui/x-data-grid";
 import { formatUnderScoreAndCapitalize } from "./libs";
 
@@ -31,6 +31,9 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     field: "amountFrom",
     headerName: "Amount 1",
     description: "The amount from",
+    valueGetter: (data: any) => {
+      return formatNumberToCurrency({ number: data.value });
+    },
   },
   {
     ...commonColumnProps,
@@ -43,6 +46,9 @@ export const HISTORY_TABLE_COLUMNS: GridColDef[] = [
     field: "amountTo",
     headerName: "Amount 2",
     description: "The amount to",
+    valueGetter: (data: any) => {
+      return formatNumberToCurrency({ number: data.value });
+    },
   },
   {
     ...commonColumnProps,

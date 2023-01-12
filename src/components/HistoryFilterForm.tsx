@@ -10,7 +10,8 @@ import {
 import { useHistoryFilterForm } from "./hooks";
 
 const HistoryFilterForm = () => {
-  const { control, onSubmit, handleClearFilter } = useHistoryFilterForm();
+  const { control, onSubmit, handleClearFilter, isFiltering } =
+    useHistoryFilterForm();
 
   const { isMobile } = useWindowSize();
 
@@ -61,10 +62,9 @@ const HistoryFilterForm = () => {
         />
       )}
       <CustomButton label="Filter" buttonType="outlined" type="submit" />
-      {!isMobile && (
+      {!isMobile && isFiltering && (
         <CustomButton
           label="Clear Filter"
-          buttonType="secondary"
           type="button"
           onClick={handleClearFilter}
         />

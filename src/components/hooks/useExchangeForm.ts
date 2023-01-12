@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { useGetExchangeRates, useGetSupportedCurrencies } from "../../api";
 import { API_ROUTES } from "../../api/constants";
 import http from "../../api/resources/http";
@@ -65,9 +66,13 @@ export const useExchangeForm = () => {
         currencyTo: exchangeTo?.name,
         unitTo: exchangeTo?.unit,
       });
+      toast("Exchange was successful");
     },
+
     (errors) => {
-      console.log({ errors });
+      toast("Error carrying out exchange", {
+        type: "error",
+      });
     }
   );
 

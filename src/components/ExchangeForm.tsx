@@ -4,7 +4,7 @@ import { CustomButton, CustomInput, CustomSelectInput } from "../reusables";
 import { useExchangeForm } from "./hooks";
 
 const ExchangeForm = () => {
-  const { getCurrenciesSelectFields, control, onSubmit, register, formState } =
+  const { getCurrenciesSelectFields, control, onSubmit, formState } =
     useExchangeForm();
 
   const { crypto, fiat } = getCurrenciesSelectFields;
@@ -18,6 +18,7 @@ const ExchangeForm = () => {
         <form
           className=" flex flex-col md:flex-row items-center gap-4"
           onSubmit={onSubmit}
+          noValidate
         >
           <Controller
             name="currencyFrom"
@@ -34,12 +35,15 @@ const ExchangeForm = () => {
               );
             }}
           />
-
-          <CustomInput
-            label="Amount"
-            {...register("amountFrom", { required: true })}
-            type="number"
-            inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+          <Controller
+            name="amountFrom"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => {
+              return (
+                <CustomInput label="Amount" inputType="amount" {...field} />
+              );
+            }}
           />
 
           <p className="hidden md:block">=</p>
@@ -58,14 +62,21 @@ const ExchangeForm = () => {
               );
             }}
           />
-          <CustomInput
-            label="Amount"
-            {...register("amountTo", { required: true })}
-            type="number"
-            inputProps={{
-              readOnly: true,
-              inputMode: "numeric",
-              pattern: "[0-9]*",
+          <Controller
+            name="amountTo"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => {
+              return (
+                <CustomInput
+                  label="Amount"
+                  inputType="amount"
+                  {...field}
+                  inputProps={{
+                    readOnly: true,
+                  }}
+                />
+              );
             }}
           />
 
